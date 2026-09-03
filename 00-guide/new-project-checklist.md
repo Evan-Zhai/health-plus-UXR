@@ -1,45 +1,43 @@
 # 新建项目清单
 
-开一个新项目时，从上到下勾。第一次可以边做边对照 `_example-claims-status`。
+在**某个已有页面**上开一轮新迭代时，从上到下勾。对照 [`../01-greenshield-plus/core/personalization/projects/_example-welcome-cards/`](../01-greenshield-plus/core/personalization/projects/_example-welcome-cards/)。
 
 ## 开项目当天
 
-- [ ] 想好**一句话问题**（我们要让谁、在什么情境下、做成一件什么事）。
-- [ ] 起好项目短名：`YYYY-MM-short-english-name`（见[命名规则](naming-conventions.md)）。
-- [ ] 在 `01-research-and-planning/projects/` 下建同名文件夹，并复制示例项目的子文件夹结构。
-- [ ] 从 `_templates/01-project-brief.md` 复制出 `00-brief/project-brief.md` 并填完。
-- [ ] 写该项目的 `README.md`（状态、主人、Figma 链接先空着也行）。
-- [ ] 在 `01-research-and-planning/_index.md` 加一行。
+- [ ] 确认落在哪个板块 / 模块 / 页面（不是先建一个「杂物夹」）。
+- [ ] 若页面文件夹还不存在：在模块下新建页面夹，并加上 `README.md`、`_index.md`、`projects/`。
+- [ ] 想好一句话问题。
+- [ ] 起短名：`YYYY-MM-short-english-name`。
+- [ ] 把 [`../_templates/project-kit/`](../_templates/project-kit/) 复制成 `…/<页面>/projects/<短名>/`。
+- [ ] 填写项目 `README.md` 和 `research-and-planning/design-scope/design-scope.md`。
+- [ ] 在该页面 `_index.md` 加一行。
 
-## 研究启动时
+## 研究阶段
 
-- [ ] 复制 `02-research-plan.md` → `01-discovery/research-plan.md`。
-- [ ] 需要访谈则复制访谈大纲和笔记模板。
-- [ ] 桌面研究、政策、旧产品截图放到 `01-discovery/desk-research/`，敏感数据打码。
+按实际用到的子类填写，不需要的夹子留着 README 即可：
 
-## 开始画流程 / 线框时
+- [ ] `competitor-research/`
+- [ ] `data-analysis/`（只写结论和打码后的图表说明，不贴可识别数据）
+- [ ] `user-research/`
 
-- [ ] 在 `02-prototypes-and-designs/projects/` 建**同名**文件夹。
-- [ ] 填 `README.md`，把 Figma 文件链接写上。
-- [ ] 先写 `01-user-flows/`，再画线框，再升高保真。
-- [ ] 在 `02-prototypes-and-designs/_index.md` 加一行。
+## 开始画流程 / 稿
 
-## 准备交给开发时
+- [ ] 产出放进**同一个项目**的 `prototypes-and-designs/`（不要另起一个项目名）。
+- [ ] 项目 README 补上 Figma 链接。
 
-- [ ] 在 `04-delivery/projects/` 建**同名**文件夹。
-- [ ] 用 `handoff-brief.md` 和 `handoff-checklist.md` 过一遍。
-- [ ] 走查清单放到 `03-qa/`。
-- [ ] 在 `04-delivery/_index.md` 加一行。
+## 要测试时
 
-## 有可复用的组件时
+- [ ] 计划、场次笔记、结论放进同一项目的 `user-testing/`。
+- [ ] 测试导致的策划变化，回写 `design-scope` 或在 scope 文末加迭代记录，不要默默改掉旧结论。
 
-- [ ] 不要只把组件埋在项目 Figma 里。
-- [ ] 用 `03-design-system/components/_component-template.md` 记一条。
-- [ ] 在 `03-design-system/changelog.md` 写一行：日期、加了什么、哪个项目验证过。
+## 碰到设计系统缺口时
+
+- [ ] 在 `02-design-system/gaps-and-backlog/` 记一条。
+- [ ] 若本轮要补语气 / 自适应 / 网页-移动转换，到对应文件夹写草案，并在 `02-design-system/projects/` 开一个系统侧项目（可和产品项目互相链接）。
 
 ## 不要做的事
 
-- 不要只建一个「杂物文件夹」把 PDF、截图、会议录音全丢进去。
-- 不要三个工作区各起一个不同的项目名。
+- 不要按「研究一个总夹、设计一个总夹」把同一项目拆到仓库顶层。
 - 不要把真实会员数据贴进 Markdown。
-- 不要用 `最终版` 当文件名。
+- 不要用「最终版」当文件名。
+- 不要把 Plus 页面的稿存进 `02-design-system/`（系统只收可复用规则）。

@@ -1,76 +1,58 @@
 # 日常怎么用这个仓库
 
-你只需要会三件事：**找地方、复制模板、填写并保存**。
+你只需要会三件事：**按层级找地方、复制项目工具包、填写并保存**。
 
-## 日常三件事
+## 找地方（五层）
 
-### 1. 找地方
+| 层级 | 问自己 | 例子 |
+| --- | --- | --- |
+| 1 业务板块 | 这是 Plus 产品、设计系统，还是跨产品通用？ | `01-greenshield-plus/` |
+| 2 功能模块 | 落在 core、药房、问诊还是咨询？ | `core/` |
+| 3 页面 / 功能 | 具体是哪一页或哪块能力？ | `personalization/` |
+| 4 项目 | 这一页上的哪一轮迭代？ | `projects/2026-09-welcome-cards/` |
+| 5 工作职责 | 这是研究、设计稿，还是测试？ | `user-research/` |
 
-记住项目的**英文短名**（例如 `2026-09-claims-status`），然后到对应工作区打开同名文件夹：
+同一页面会有很多轮项目，**不要覆盖旧项目文件夹**。新开一轮就新建一个 `YYYY-MM-短名`。
 
-- 研究、访谈、策略 → `01-research-and-planning/projects/<短名>/`
-- 流程、线框、原型、设计稿 → `02-prototypes-and-designs/projects/<短名>/`
-- 交给开发的说明和清单 → `04-delivery/projects/<短名>/`
-- 颜色、组件、模式（所有项目共用）→ `03-design-system/`
+还没有拆到页面的模块（pharmacy / telemed / counselling）：先把项目放在该模块 README 里登记，页面名字确定后再建与 `personalization` 同级的文件夹，把项目挪进去。
 
-每个项目文件夹里的 `README.md` 是该项目的封面：状态、Figma 链接、当前结论。
+## 复制模板
 
-### 2. 复制模板
+完整空项目在 [`../_templates/project-kit/`](../_templates/project-kit/)。做法：
 
-各工作区的 `_templates/` 里是空白模板。做法：
+1. 对照工具包，在目标页面的 `projects/` 下建同名结构（或请 Cursor 按工具包复制一份并改名）。
+2. 打开模板，把 `{{ }}` 换成真实内容。
+3. 用不到的章节删掉，不要硬填。
+4. 在该页面的 `_index.md` 加一行。
 
-1. 打开模板，全选复制。
-2. 在你的项目文件夹里 **Create new file**，文件名按[命名规则](naming-conventions.md)起。
-3. 粘贴后把 `{{ }}` 里的提示换成真实内容。
-4. 把用不到的章节删掉，不要硬填。
+对照示例：[`../01-greenshield-plus/core/personalization/projects/_example-welcome-cards/`](../01-greenshield-plus/core/personalization/projects/_example-welcome-cards/)。
 
-示例项目 `_example-claims-status` 已经填过一遍，不知道怎么写时先对照它。
+## 填写并保存
 
-### 3. 填写并保存
+在 GitHub 网页上：打开文件 → 铅笔图标 → 修改 → 底部写一句说明 → Commit。
 
-在 GitHub 网页上：
-
-1. 打开文件 → 右上角铅笔图标（Edit）。
-2. 改文字。
-3. 拉到页面底部，写一句说明，例如「补充 3 条访谈结论」。
-4. 选 **Commit directly to the `main` branch**（或按团队约定提交到当前分支）→ Commit。
-
-这样历史会被自动记下，比桌面上一堆「最终版-真的最终版.fig」清楚。
+历史靠 Git 记住，不要用「最终版-真的最终版」当文件名。
 
 ## 什么放这里，什么不放
 
 | 放进 GitHub | 不要放进 GitHub |
 | --- | --- |
-| Markdown 说明、清单、决策记录 | 真实会员 / 理赔 / 健康数据 |
-| Figma、FigJam、原型的链接 | `.fig` / `.sketch` / 长视频 |
-| 导出的小图（流程截图、组件预览） | 密码、密钥、未公开的合同原文 |
-| 评审纪要、走查问题 | 个人隐私（真名 + 保单号） |
-
-大文件请写：「源文件在 Figma：\<链接\>」。仓库负责**可检索的决策**，Figma 负责**可点击的稿**。
+| Markdown 说明、清单、决策 | 真实会员 / 理赔 / 健康数据 |
+| Figma、原型的链接 | `.fig` / 长视频 |
+| 导出的小预览图 | 密码、未公开合同原文 |
 
 ## 和 Figma 怎么分工
 
 | 问题 | 写在仓库 | 做在 Figma |
 | --- | --- | --- |
-| 我们要解决什么问题？ | `01-.../00-brief/` | — |
-| 用户怎么走完这条任务？ | `02-.../01-user-flows/` | FigJam 流程图（可选） |
-| 页面长什么样、能不能点？ | 页面清单 + 链接 | 线框 / 高保真 / 原型 |
-| 按钮用哪一种？ | `03-design-system/components/` | 组件库变体 |
-| 开发按什么做？ | `04-delivery/` | 标注、Auto Layout、红线 |
+| 这轮项目解决什么、范围多大 | `research-and-planning/design-scope/` | — |
+| 竞品、数据、用户研究 | 对应研究子文件夹 | FigJam 可选 |
+| 页面长什么样、能不能点 | `prototypes-and-designs/` 清单 + 链接 | 线框 / 高保真 / 原型 |
+| 测了什么、改了什么 | `user-testing/` | 测试用原型 |
+| 组件用哪一种 | `02-design-system/` + Figma 库链接 | 组件库（当前和开发沟通的主渠道） |
 
-## 迭代怎么记
+## 一轮项目结束时
 
-策划和设计都会改想法。不要覆盖掉旧结论，在对应的 `iteration-log.md` 或 `exploration-log.md` 加一条：
-
-- 日期
-- 改了什么
-- 为什么改
-- 影响哪些页面 / 研究假设
-
-旧文件可以留着，在文件名或文首标 `superseded`（已被替代），并链到新文件。
-
-## 项目结束时
-
-1. 把三个工作区的 `_index.md` 状态改成「已归档」。
-2. 把该项目三个文件夹一起移到 `99-archive/`（可请同事或之后的 Agent 帮忙搬）。
-3. 设计系统里被采纳的组件/模式留下，不要跟着项目删掉。
+1. 把该页面 `_index.md` 里这一行改成「已上线」或「已归档」。
+2. **文件夹留在该页面的 `projects/` 里**，方便以后同页新项目对照。
+3. 若有可复用的组件或规则，记到 `02-design-system/`，不要只埋在项目 Figma 里。
