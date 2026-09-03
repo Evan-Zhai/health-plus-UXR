@@ -1,0 +1,11 @@
+{
+  "name": "GreenShield Plus 设计工作台",
+  "install": "sudo apt-get update && sudo apt-get install -y python3-venv && python3 -m venv .venv && . .venv/bin/activate && pip install --upgrade pip && pip install -r tools/requirements.txt",
+  "terminals": [
+    {
+      "name": "docs-preview",
+      "command": ". .venv/bin/activate && python tools/serve_docs.py --host 0.0.0.0 --port 8000 --root ."
+    }
+  ],
+  "ports": [8000]
+}

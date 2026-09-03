@@ -1,0 +1,3 @@
+# Dependencies for the local Markdown preview server (tools/serve_docs.py).
+# The workspace itself is Markdown-only; this is the only runtime dependency.
+markdown==3.7

@@ -29,3 +29,7 @@ desktop.ini
 # Local scratch
 tmp/
 .scratch/
+
+# Preview server virtualenv (see tools/serve_docs.py)
+.venv/
+__pycache__/
